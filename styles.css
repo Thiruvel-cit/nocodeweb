@@ -1,0 +1,409 @@
+/* Sidebar Styling */
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #343a40;
+    padding-top: 20px;
+}
+.sidebar a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+}
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.content-area {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+/* Drag & Drop Editor */
+.drag-drop-editor {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    min-height: 500px;
+    position: relative;
+}
+
+/* Component Library */
+#component-library {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn-custom {
+    background-color: #dde3e9;
+    color: white;
+}
+.btn-custom:hover {
+    background-color: white;
+}
+
+/* Dropped Items */
+.dropped-item {
+    position: absolute;
+    cursor: move;
+    user-select: none;
+}
+
+/* Canvas Elements */
+.canvas-button {
+    padding: 8px 16px;
+    background: white;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.canvas-text {
+    padding: 8px;
+    border: 1px solid #ddd;
+    background: white;
+}
+.canvas-shape {
+    width: 100px;
+    height: 100px;
+    background: #545556;
+    border-radius: 4px;
+}
+/* Dropdown Button (Inside Menu) */
+.dropmenu-btn {
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 6em;
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    width: 100%; /* Makes the button full-width inside the dropdown */
+  }
+  
+  .dropmenu-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dropmenu-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dropmenu-btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+    background-color: #fff;
+  }
+  
+  .dropmenu-btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+/* Rectangle */
+.rectangle {
+    width: 150px;
+    height: 100px;
+    background-color: blue;
+    margin: 10px;
+}
+
+/* Square */
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin: 10px;
+}
+
+/* Circle */
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+/* Triangle */
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid orange;
+    margin: 10px;
+}
+
+/* Horizontal Line */
+.line {
+    width: 200px;
+    height: 2px;
+    background-color: black;
+    margin: 10px;
+}
+
+/* Hexagon */
+.hexagon {
+    width: 100px;
+    height: 55px;
+    background-color: purple;
+    position: relative;
+    margin: 10px;
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+}
+
+.hexagon:before {
+    bottom: 100%;
+    border-bottom: 30px solid purple;
+}
+
+.hexagon:after {
+    top: 100%;
+    border-top: 30px solid purple;
+}
+/* Shared styles for dropdown items and dragged elements */
+.draggable-component {
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 6em;
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    width: 100%; /* Makes the button full-width inside the dropdown */
+    margin: 5px 0; /* Add some spacing */
+}
+
+.draggable-component:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.draggable-component:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.draggable-component::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+    background-color: #fff;
+}
+
+.draggable-component:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/* Specific styles for dragged elements */
+.dropped-item {
+    position: absolute;
+    cursor: move;
+    user-select: none;
+}
+
+/* Canvas Elements */
+.canvas-button {
+    padding: 8px 16px;
+    background: #fbfcfd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.canvas-text {
+    padding: 8px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.canvas-shape {
+    width: 100px;
+    height: 100px;
+    background: #f6f7f8;
+    border-radius: 4px;
+}
+
+/* Shapes */
+.rectangle, .square, .circle, .triangle, .line, .hexagon {
+    margin: 10px;
+}
+
+.rectangle {
+    width: 150px;
+    height: 100px;
+    background-color: blue;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid orange;
+}
+
+.line {
+    width: 200px;
+    height: 2px;
+    background-color: black;
+}
+
+.hexagon {
+    width: 100px;
+    height: 55px;
+    background-color: purple;
+    position: relative;
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+}
+
+.hexagon:before {
+    bottom: 100%;
+    border-bottom: 30px solid purple;
+}
+
+.hexagon:after {
+    top: 100%;
+    border-top: 30px solid purple;
+}
+#drop-zone {
+    width: 100%;
+    height: 400px; /* Set a fixed height */
+    overflow: auto; /* Enable scrolling */
+    background-color: #e9ecef;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    position: relative; /* Needed for absolute positioning of dragged elements */
+}
+
+.dropped-element {
+    position: absolute;
+    cursor: grab;
+}
+/* Ensure submenus open properly without shaking */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 0.5rem;
+    display: none;
+    min-width: 150px;
+    max-height: 300px; /* Limits height to prevent overflow */
+    overflow-y: auto; /* Allows scrolling if too many items */
+}
+
+/* Show submenu on hover */
+.dropdown-submenu:hover > .dropdown-menu,
+.dropdown-submenu:focus-within > .dropdown-menu {
+    display: block;
+}
+
+/* Adjust if submenu is near the bottom to open upwards */
+.dropdown-menu.auto-position {
+    bottom: 100% !important;
+    top: auto !important;
+}
+/* Placeholder styling */
+.image-placeholder {
+    text-align: center;
+    color: #007bff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Styling for dropped images */
+.canvas-image {
+    border: 1px solid #ccc;
+    cursor: grab;
+}
+
+/* Resizing handle */
+.resize-handle {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+}
+

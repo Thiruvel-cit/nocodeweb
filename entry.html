@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App Builder Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="text-white text-center">Web App Builder</h4>
+        <a href="#" id="dashboard-tab">Dashboard</a>
+        <a href="#" id="my-projects-tab">My Projects</a>
+        <a href="#" id="deploy-tab">Deploy</a>
+        <a href="#" id="settings-tab">Settings</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-area">
+        <div id="dashboard-section">
+            <h2 class="section-title">Dashboard</h2>
+            <p>Welcome to Web App Builder! Manage your projects and explore available features.</p>
+            <button class="btn btn-custom m-2">Create New Project</button>
+            <button class="btn btn-custom m-2">View Tutorials</button>
+        </div>
+
+
+         <!-- My Projects Section -->
+         <div id="my-projects-section" style="display: none;">
+            <h2 class="section-title">My Projects</h2>
+            <div class="drag-drop-editor">
+                <h4>Drag and Drop Editor</h4>
+                <p>Build your app UI by dragging and dropping components here.</p>
+                
+                <!-- Functional Canvas from Web App Builder -->
+                <div id="canvas" style="width: 100%; height: 500px; background-color: #f8f9fa; border: 2px dashed #007bff; border-radius: 10px; position: relative; overflow: auto;">
+                    <p style="text-align: center; color: #777;">Drop components here</p>
+                  </div>
+                  
+                
+                <button class="btn btn-custom m-2" id="save-button">Save Project</button>
+                <button class="btn btn-custom m-2" id="load-button">Load Project</button>
+                <button class="btn btn-custom m-2">Templates</button>
+                <button class="btn btn-custom m-2">Add Functionality</button>
+                <button id="previewButton" class="btn btn-custom m-2">Preview</button>
+                <button id="exportButton" class="btn btn-custom m-2">Export</button>
+
+
+        
+            </div>
+        </div> 
+
+        <div id="component-library" style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <div class="dropdown">
+                <button class="btn btn-custom dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Components
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button class="draggable-components dropdown-item" data-type="container" data-template="container">
+                            Container
+                        </button>
+                    </li>
+        
+                    <!-- Buttons Dropdown -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Buttons</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button class="draggable-component dropdown-item" data-type="button" data-template="primaryButton" draggable="true">
+                                    Button
+                                  </button>
+                                  
+                            </li>
+                        </ul>
+                    </li>
+        
+                    <!-- Text Blocks Dropdown -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Text Blocks</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" class="dropdown-item draggable-component" data-type="text" data-template="textBlock">
+                                    Text Block
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+        
+                    <!-- Shapes Dropdown -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Shapes</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item draggable-component" data-type="shape" data-template="rectangle">Rectangle</a></li>
+                            <li><a href="#" class="dropdown-item draggable-component" data-type="shape" data-template="square">Square</a></li>
+                            <li><a href="#" class="dropdown-item draggable-component" data-type="shape" data-template="circle">Circle</a></li>
+                            <li><a href="#" class="dropdown-item draggable-component" data-type="shape" data-template="triangle">Triangle</a></li>
+                            <li><a href="#" class="dropdown-item draggable-component" data-type="shape" data-template="line">Line</a></li>
+                            <li><a href="#" class="dropdown-item draggable-component" data-type="shape" data-template="hexagon">Hexagon</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Components Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-custom dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Components
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button class="draggable-component dropdown-item" data-type="container">
+                            Container
+                        </button>
+                    </li>
+                    <li>
+                        <button class="draggable-component dropdown-item" id="imagePlaceholderButton" draggable="true">
+                            Image
+                        </button>
+                    </li>
+                    <li>
+                        <button class="draggable-component dropdown-item" data-type="hyperlink" draggable="true">
+                          Hyperlink
+                        </button>
+                      </li>
+                      
+                </ul>
+            </div>
+            
+            <!-- Hidden File Input for Image Selection -->
+            <input type="file" id="imageUploader" accept="image/*" style="display: none;">
+            
+
+
+        </div>
+        <div id="properties-panel" style="position: fixed; top: 0; right: 0; width: 250px; height: 100vh; background: #f0f0f0; border-left: 1px solid #ccc; padding: 10px; display: none; overflow-y: auto;">
+            <h4>Properties</h4>
+            <div id="properties-content">
+              <div>
+                <label for="prop-fontSize">Font Size (px):</label>
+                <input type="number" id="prop-fontSize" value="16" min="8" style="width: 100%;">
+              </div>
+              <div>
+                <label for="prop-color">Text Color:</label>
+                <input type="color" id="prop-color" value="#000000" style="width: 100%;">
+              </div>
+              <div>
+                <label for="prop-bgColor">Background Color:</label>
+                <input type="color" id="prop-bgColor" value="#ffffff" style="width: 100%;">
+              </div>
+              <div>
+                <label for="prop-border">Border:</label>
+                <input type="text" id="prop-border" placeholder="e.g., 1px solid #000" style="width: 100%;">
+              </div>
+            </div>
+            <button id="reset-props" style="margin-top: 10px;">Reset Properties</button>
+            <button id="close-props" style="margin-top: 10px;">Close</button>
+          </div>
+          
+        
+        
+            
+       
+        
+        <!-- Deploy Section -->
+        <div id="deploy-section" style="display: none;">
+            <h2 class="section-title">Deploy</h2>
+            <p>Deploy your app to make it live. Configure settings for deployment below.</p>
+            <button class="btn btn-custom m-2">Start Deployment</button>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings-section" style="display: none;">
+            <h2 class="section-title">Settings</h2>
+            <p>Configure your preferences, account details, and app settings.</p>
+        </div>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs/index.min.js"></script>
+    <script src="ui.js" defer></script>
+    <!-- Include export.js (make sure the path is correct) -->
+<script src="export.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // When the preview button is clicked:
+    document.getElementById("previewButton").addEventListener("click", function() {
+      previewExportedWebsite();
+    });
+    // When the export button is clicked:
+    document.getElementById("exportButton").addEventListener("click", function() {
+      downloadExportedWebsite();
+    });
+  });
+</script>
+
+    
+</body>
+</html>

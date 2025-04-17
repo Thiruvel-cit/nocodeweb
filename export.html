@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Preview</title>
+  <style>
+    body { margin: 0; padding: 0; }
+    #exported-canvas { position: relative; width: 100%; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="exported-canvas"></div>
+  <script>
+    // When export.html loads, retrieve the canvas content saved in sessionStorage.
+    const exportedCanvasContent = sessionStorage.getItem("exportedCanvas");
+    if (exportedCanvasContent) {
+      document.getElementById("exported-canvas").innerHTML = exportedCanvasContent;
+    } else {
+      document.getElementById("exported-canvas").innerHTML = "<p>No design data found.</p>";
+    }
+  </script>
+</body>
+</html>
